@@ -16,7 +16,7 @@ use Endroid\QrCode\QrCode as EndroidQrCode;//将QrCode命名空间腾出来
 $data  = trim($_GET['data']) ? trim($_GET['data']) : 'http://www.cnblogs.com/ryanzheng';
 $size  = intval($_GET['size']) > 1000 ? 1000 : intval($_GET['size']);
 $label = trim($_GET['label']) ? trim($_GET['label']) : null;
- 
+$label = "cnblog ryan.zheng";
 $QrModel = new EndroidQrCode();
 ##默认参数
 $QrModel->setText($data) //设置二维码上的内容
@@ -28,7 +28,7 @@ $QrModel->setText($data) //设置二维码上的内容
 ###可能的指定生成的二维码尺寸，由get变量获取
 $size ? $QrModel->setSize(intval($size)) : $QrModel->setSize(190);
 ###可能的指定二维码下方的文字，由get变量获取；写死15px的字体大小，方正静蕾简体手写体的字体
-$label && $QrModel->setLabelFontPath('./font/yaya.ttf')->setLabel($label)->setLabelFontSize(15);
+$label && $QrModel->setLabelFontPath('./Justus-ItalicOldstyle.woff.ttf')->setLabel($label)->setLabelFontSize(15);
 ###设置输出的header头：输出的内容是一张图片
 // header('Content-Type: '.$QrModel->getContentType());
 ##QrCode类的输出png图片数据的方法输出图片，这个时候使用浏览器访问这个Url将显示一张二维码图片
